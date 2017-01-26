@@ -10,3 +10,5 @@
 *.project
 *.settings
 /target/
+/test.yaml
+/tracking-api-v2-stub-rest-0-0-2.yaml
