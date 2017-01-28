@@ -76,13 +76,11 @@
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-starter-actuator</artifactId>
 		</dependency>
-
 		<dependency>
 			<groupId>org.kie</groupId>
 			<artifactId>kie-ci</artifactId>
 			<version>${kie.version}</version>
 		</dependency>
-
 	</dependencies>
 
 	<build>
@@ -122,11 +120,13 @@
 							<run>
 								<namingStrategy>alias</namingStrategy>
 								<ports>
-									<port>${host.port}:8080</port>
+									<!-- <port>${host.port}:8080</port> -->
+									<port>18080:8080</port>
 								</ports>
 								<wait>
 									<http>
-										<url>http://localhost:${host.port}/buspass?name=jfhgf&amp;age=12</url>
+										<!-- <url>http://localhost:${host.port}/buspass?name=jfhgf&amp;age=12</url> -->
+										<url>http://localhost:18080/buspass?name=jfhgf&amp;age=12</url>
 									</http>
 									<time>10000</time>
 								</wait>
