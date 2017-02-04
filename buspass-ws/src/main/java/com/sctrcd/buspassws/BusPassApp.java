@@ -14,7 +14,7 @@ import org.springframework.context.annotation.Bean;
 /**
  * The main class, which Spring Boot uses to bootstrap the application.
  *
- * @author Stephen Masters
+ * @author Regis Mazur
  */
 @SpringBootApplication
 public class BusPassApp {
