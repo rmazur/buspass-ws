@@ -109,7 +109,8 @@
 				<artifactId>docker-maven-plugin</artifactId>
 				<version>0.19.0</version>
 				<configuration>
-				<showLogs>false</showLogs>
+					<!-- <authConfig> <username></username> <password></password> </authConfig> -->
+					<showLogs>false</showLogs>
 					<images>
 						<image>
 							<alias>microdrools</alias>
@@ -127,8 +128,12 @@
 									<http>
 										<!-- <url>http://localhost:${host.port}/buspass?name=jfhgf&amp;age=12</url> -->
 										<url>http://localhost:18080/buspass?name=jfhgf&amp;age=12</url>
+										<method>GET</method>
+										<status>200..399</status>
 									</http>
 									<time>10000</time>
+									<kill>1000</kill>
+									<shutdown>500</shutdown>
 								</wait>
 							</run>
 						</image>
@@ -141,6 +146,15 @@
 						<goals>
 							<goal>build</goal>
 							<goal>start</goal>
+						</goals>
+					</execution>
+					<execution>
+						<id>post-build</id>
+						<phase>install</phase>
+						<goals>
+							<goal>stop</goal>
+							<goal>remove</goal>
+							<!-- <goal>push</goal> -->
 						</goals>
 					</execution>
 				</executions>
